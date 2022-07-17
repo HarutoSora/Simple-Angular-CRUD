@@ -1,0 +1,95 @@
+<div class="container">
+  <div style="margin-top: 20px;">
+
+    <div class="row my-4">
+      <div class="col-md-6 text-center">
+        <button type="button" class="btn btn-success" (click)="show_add_form()">
+          <i class="fa fa-plus">
+            New Cours
+          </i>
+        </button>
+        <div class="container" *ngIf="visible">
+          <button type="button" class="btn btn-danger close" (click)="visible=false;restCours();">
+            X
+          </button>
+          <div class="row my-4">
+            <div class="col-md-6 text-center">
+              <h1>{{label}}</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mx-auto">
+    
+                <div class="form-group">
+                  <label for="lable">Title</label>
+                  <input type="text" [(ngModel)]="My_Cour.title"  id="title" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="lable">Price</label>
+                  <input type="number" [(ngModel)]="My_Cour.price"  id="price" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="lable">Content</label>
+                  <input type="text" [(ngModel)]="My_Cour.content"  id="content" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="lable">Img Url</label>
+                  <input type="text" [(ngModel)]="My_Cour.image"  id="img" class="form-control">
+                </div>
+    
+                <button *ngIf="label==='Add Cours'" style="margin-top: 20px;" class="btn btn-success btn-block" (click)="addCours()">
+                  <i class="fa fa-paper-plane">
+                    {{label}}
+                  </i>
+                </button>
+    
+                <button *ngIf="label==='Edite Cours'" style="margin-top: 20px;" class="btn btn-warning btn-block" (click)="editCoure()">
+                  <i class="fa fa-pen">
+                    {{label}}
+                  </i>
+                </button>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <h1>Courses List</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Price</th>
+          <th scope="col">Content</th>
+          <th scope="col">Images</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of dataSource">
+          <th scope="row">1</th>
+          <td>{{item.title}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.content}}</td>
+          <td><img [src]="item.image" width="200" height="100"></td>
+          <td>
+            <button type="button" class="btn btn-warning" (click)="show_edit_form(item)">
+              Update
+              <i class="fa fa-pen"></i>
+            </button>
+            |
+            <button type="button" class="btn btn-danger" (click)="deleteCoure(item.id)">delete
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>

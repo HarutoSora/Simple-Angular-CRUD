@@ -1,0 +1,29 @@
+nav{
+  background-color: blue !important;
+}
+
+.navbar-brand{  
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-link{
+  color: white ;
+  font-size: 20px;
+  font-weight: bold;
+
+}
+
+.container-fluid{
+  justify-content: flex-start
+}
+
+.container-fluid:hover{
+  color: black ;
+}
+
+
+.nav-link:hover{
+  color: black ;
+}
